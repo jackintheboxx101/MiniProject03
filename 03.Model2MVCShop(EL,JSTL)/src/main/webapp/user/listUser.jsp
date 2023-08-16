@@ -21,6 +21,7 @@
 	String searchKeyword = CommonUtil.null2str(search.getSearchKeyword());
 %> 	/////////////////////// EL / JSTL 적용으로 주석 처리 //////////////////////// --%>
 
+
 <html>
 <head>
 <title>회원 목록 조회</title>
@@ -29,12 +30,12 @@
 
 <script type="text/javascript">
 
-	// 검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용  
-	function fncGet${type}List(currentPage) {
+ 	// 검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용  
+	function fncGetUserList(currentPage) {
 		document.getElementById("currentPage").value = currentPage;
 	   	document.detailForm.submit();		
 	}
-
+ 
 </script>
 
 </head>
@@ -76,7 +77,7 @@
 			</select>
 			<%--<input type="text" name="searchKeyword" value="<%= searchKeyword %>"  class="ct_input_g" style="width:200px; height:14px" >--%>
 			<input type="text" name="searchKeyword" 
-						value="${! empty search.searchKeyword ? search.searchKeyword : ""}"  
+						value="${!empty search.searchKeyword ? search.searchKeyword : ''}"  
 						class="ct_input_g" style="width:200px; height:20px" > 
 		</td>
 		<td align="right" width="70">
@@ -180,9 +181,9 @@
 	 /////////////////////// EL / JSTL 적용으로 주석 처리 //////////////////////// --%>
 	
 		<%-- <jsp:include page="../common/pageNavigator.jsp"/> --%>	
-		<c:set var="type" value="User" />
+
 			<jsp:include page = "../common/pageNavigator.jsp">
-				<jsp:param value="${type}" name="type" />	
+				<jsp:param value="User" name="type" />	
 			</jsp:include>
     	</td>
 	</tr>

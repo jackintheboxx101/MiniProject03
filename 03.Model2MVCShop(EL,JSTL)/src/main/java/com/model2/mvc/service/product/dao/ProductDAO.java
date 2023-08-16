@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.jdt.internal.compiler.ast.AND_AND_Expression;
+
 import com.model2.mvc.common.Search;
 import com.model2.mvc.common.util.DBUtil;
 import com.model2.mvc.service.domain.Product;
@@ -82,11 +84,11 @@ public class ProductDAO {
 
 		if (search.getSearchCondition() != null) {
 			if (search.getSearchCondition().equals("0") && !search.getSearchKeyword().equals("")) {
-				sql += " WHERE prod_no = '" + search.getSearchKeyword() + "'";
+				sql += " WHERE prod_no LIKE '%" + search.getSearchKeyword() + "%'";
 			} else if (search.getSearchCondition().equals("1") && !search.getSearchKeyword().equals("")) {
-				sql += " WHERE prod_name ='" + search.getSearchKeyword() + "'";
+				sql += " WHERE prod_name LIKE '%" + search.getSearchKeyword() + "%'";
 			} else if (search.getSearchCondition().equals("2") && !search.getSearchKeyword().equals("")) {
-				sql += " WHERE price ='" + search.getSearchKeyword() + "'";
+				sql += " WHERE price BETWEEN  "+ search.getSearchKeyword() + " AND "+ search.getSearchKeyword() + "+10000";
 			} 
 		}
 		sql += " ORDER BY prod_no";
