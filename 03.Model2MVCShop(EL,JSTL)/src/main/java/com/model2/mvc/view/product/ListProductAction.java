@@ -18,7 +18,7 @@ import com.model2.mvc.service.user.impl.UserServiceImpl;
 
 public class ListProductAction extends Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-Search search=new Search();
+		Search search=new Search();
 		
 		int currentPage=1;
 
@@ -57,11 +57,7 @@ Search search=new Search();
 		
 	//====> jsp manage, search 분리 
 		
-		HttpSession session =request.getSession();
-		User vo= (User)session.getAttribute("user");  
-		System.out.println(":::::::::::::::::::::::::로그인 ID : "+vo.getUserId()+":::::::::::::::::::::::::ROLE : "+vo.getRole()+"::::::::::::::::::::::::::::::::::::::");
-		
-
+	
 		return "forward:/product/listProduct.jsp";
 	}
 }
