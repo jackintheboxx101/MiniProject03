@@ -19,13 +19,13 @@ System.out.println("jsp access : " + menu);
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
 <script type="text/javascript">
-<!--
+
 	//검색 / page 두가지 경우 모두 Form 전송을 위해 JavaScrpt 이용  
-	function fncGetProductList(currentPage) {
+	function fncGet${type}List(currentPage) {
 		document.getElementById("currentPage").value = currentPage;
 		document.detailForm.submit();
 	}
-	-->
+
 </script>
 </head>
 
@@ -73,7 +73,7 @@ System.out.println("jsp access : " + menu);
 							<option value="1"  ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" }>상품명</option>
 							<option value="2"  ${ ! empty search.searchCondition && search.searchCondition==2 ? "selected" : "" }>상품가격</option>
 					</select> 
-					<input type="text" name="searchKeyword" value="${! empty search.searchKeyword ? search.searchKeyword : "" }"
+					<input type="text" name="searchKeyword" value="${! empty search.searchKeyword ? search.searchKeyword : ""}"
 						class="ct_input_g" style="width: 200px; height: 19px" /></td>
 
 					<td align="right" width="70">
@@ -137,7 +137,7 @@ System.out.println("jsp access : " + menu);
 					<td></td>
 					<td align="left">${product.regDate }</td>
 					<td></td>
-					<td align="left">${product.proTranCode } <%-- code를 받아 if로 분류해야 할  --%>
+					<td align="left">${product.proTranCode} <%-- code를 받아 if로 분류해야 할  --%>
 
 					</td>
 				</tr>
